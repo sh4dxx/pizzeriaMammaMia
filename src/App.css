@@ -1,0 +1,30 @@
+.btn-bprymary{
+  border: 1px solid #20aeda;
+}
+
+.btn-blight{
+  border: 1px solid #ffffff;
+}
+
+.btn-bdark{
+  border: 1px solid #000;
+}
+
+.navbar-collapse ul li  {
+  margin-left: 5px;
+}
+
+.header{
+  text-align: center;
+  color: #023818;
+  align-content: center;
+  text-shadow: 2px 2px 4px #ffffff;
+}
+
+.img-header {
+    background-image: url("./assets/img/header-5.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    height: 250px;
+}
