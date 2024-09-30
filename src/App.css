@@ -28,3 +28,7 @@
     background-position: bottom;
     height: 250px;
 }
+
+.row {
+  margin: 10px 10px;
+}
