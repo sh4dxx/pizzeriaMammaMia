@@ -9,15 +9,9 @@ function App() {
     return (
         <>
             <Navbar />
-            <div className="container">
-                <div className="row">
-
-                    {/* <Home /> */}
-                    {/* <Register /> */}
-                    <Login/>
-                
-                </div>
-            </div>
+            {/* <Home /> */}
+            {/* <Register /> */}
+            <Login/>
             <Footer />
         </>
     );
