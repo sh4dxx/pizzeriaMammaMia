@@ -32,7 +32,7 @@ export default function Login() {
                                 <br />
                                 <form onSubmit={handleSubmit}>
                                     <label htmlFor="" className="form-labe">
-                                        Email:
+                                        Email
                                     </label>
                                     <input value={email} type="email" className="form-control" onChange={(e) => setEmail(e.target.value)}></input>
                                     <label type="text">
@@ -40,7 +40,7 @@ export default function Login() {
                                     </label>
                                     <br />
                                     <label htmlFor="" className="form-labe">
-                                        Password:
+                                        Password
                                     </label>
                                     <input value={password} type="password" className="form-control" onChange={(e) => setPassword(e.target.value)}></input>
                                     <label type="text">
@@ -48,7 +48,7 @@ export default function Login() {
                                     </label>
                                     <br />
                                     <button type="submit" className="btn btn-primary">
-                                        Enviar
+                                        Login
                                     </button>
                                 </form>
                             </div>

@@ -40,22 +40,22 @@ export default function Register() {
                                 <h3 className="card-title">Register</h3>
                                 <form onSubmit={handleSubmit}>
                                     <label htmlFor="" className="form-labe">
-                                        Email:
+                                        Email
                                     </label>
                                     <input value={email} type="email" className="form-control" onChange={(e) => setEmail(e.target.value)}></input>
                                     <br />
                                     <label htmlFor="" className="form-labe">
-                                        Password:
+                                        Password
                                     </label>
                                     <input value={password} type="password" className="form-control" onChange={(e) => setPassword(e.target.value)}></input>
                                     <br />
                                     <label htmlFor="" className="form-labe">
-                                        Ratification Password:
+                                        Ratification Password
                                     </label>
                                     <input value={ratificationPassword} type="password" className="form-control" onChange={(e) => setRatificationPassword(e.target.value)}></input>
                                     <br />
                                     <button type="submit" className="btn btn-primary">
-                                        Enviar
+                                        Registrar
                                     </button>
                                 </form>
                             </div>
