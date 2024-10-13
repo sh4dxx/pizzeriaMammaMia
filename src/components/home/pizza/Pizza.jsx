@@ -8,7 +8,7 @@ export default function Pizza() {
         try {
             const respuesta = await axios.get("http://localhost:5000/api/pizzas/p001");
             setPizza(respuesta.data);
-            console.log(respuesta.data);
+            //console.log(respuesta.data);
         } catch (error) {
             console.log(error);
         }
@@ -18,7 +18,7 @@ export default function Pizza() {
         getPizza();
     }, []);
 
-    // let priceFormat = pizza.price.toLocaleString("de-DE");
+     //let priceFormat = pizza.price.toLocaleString("de-DE");
     let quantityIngre = pizza.ingredients.length;
 
     return (
