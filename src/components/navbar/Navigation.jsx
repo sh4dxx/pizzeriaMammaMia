@@ -1,4 +1,6 @@
-export default function Navbar() {
+import { Link } from "react-router-dom";
+
+export default function Navigation() {
     const total = 25000;
     const token = false;
 
@@ -19,23 +21,26 @@ export default function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <div className="btn btn-dark btn-blight">🍕Home</div>
+                                <Link to="/" className="btn btn-dark btn-blight">🍕Home</Link>
                             </li>
                             <li className="nav-item">
-                                <div className={showLogout}>🔐Login</div>
+                                <Link to="/login" className={showLogout}>🔐Login</Link>
                             </li>
                             <li className="nav-item">
-                                <div className={showLogout}>🔐Register</div>
+                                {/* <div className={showLogout}>🔐Register</div> */}
+                                <Link to="/register" className={showLogout}>🔐Register</Link>
                             </li>
                             <li className="nav-item">
-                                <div className={showLogin}>🔓Profile</div>
+                                {/* <div className={showLogin}>🔓Profile</div> */}
+                                <Link to="/profile" className={showLogin}>🔓Profile</Link>
                             </li>
                             <li className="nav-item">
-                                <div className={showLogin}>🔒Logout</div>
+                                {/* <div className={showLogin}>🔒Logout</div> */}
+                                <Link to="/profile" className={showLogin}>🔒Logout</Link>
                             </li>
-                            
                         </ul>
-                        <button className="btn btn-dark btn-bprymary">🛒Total ${totalFormat}</button>
+                        {/* <button className="btn btn-dark btn-bprymary">🛒Total ${totalFormat}</button> */}
+                        <Link to="/cart" className="btn btn-dark btn-bprymary">🛒Total ${totalFormat}</Link>
                     </div>
                 </div>
             </nav>

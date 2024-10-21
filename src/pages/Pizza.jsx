@@ -19,7 +19,7 @@ export default function Pizza() {
     }, []);
 
      //let priceFormat = pizza.price.toLocaleString("de-DE");
-    let quantityIngre = pizza.ingredients.length;
+    //let quantityIngre = pizza.ingredients.length;
 
     return (
         <>
@@ -29,13 +29,14 @@ export default function Pizza() {
                     <div className="card-body">
                         <h5 className="card-title mb-3">Pizza {pizza.name} </h5>
                         <hr />
-                        <p className="card-text h6 fw-light">{quantityIngre} Ingredientes:</p>
+                        {/* <p className="card-text h6 fw-light">{quantityIngre} Ingredientes:</p> */}
+                        <p className="card-text h6 fw-light">4 Ingredientes:</p>
                         <p>
-                            {pizza.ingredients.map((ingredient, index) => (
+                            {/* {pizza.ingredients.map((ingredient, index) => (
                                 <spam className="fw-light" key={index}>
                                     🍕{ingredient + " "} 
                                 </spam>
-                            ))}
+                            ))} */}
                         </p>
                         <p className="fw-light">{pizza.desc}</p>
                         <hr />

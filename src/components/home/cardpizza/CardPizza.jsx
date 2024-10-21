@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function CardPizza(pizza) {
 
     let priceFormat = pizza.price.toLocaleString("de-DE")
@@ -21,7 +23,8 @@ export default function CardPizza(pizza) {
                         <hr />
                         <p className="h4 text-center">Precio: ${priceFormat}</p>
                         <div className="mt-3 d-flex justify-content-between">
-                            <button className="btn btn-light btn-bdark">Ver mas 👀</button>
+                            {/* <button className="btn btn-light btn-bdark">Ver mas 👀</button> */}
+                            <Link to="/pizza/p001" className="btn btn-light btn-bdark">Ver mas 👀</Link>
                             <button className="btn btn-dark btn-bdark">Añadir 🛒</button>
                         </div>                        
                     </div>

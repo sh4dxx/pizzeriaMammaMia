@@ -1,6 +1,6 @@
 import axios from "axios";
-import Header from "./header/Header";
-import CardPizza from "./cardpizza/CardPizza";
+import Header from "../components/home/header/Header";
+import CardPizza from "../components/home/cardpizza/CardPizza";
 import { useState, useEffect } from "react";
 
 export default function Home() {
