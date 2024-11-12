@@ -1,14 +1,10 @@
-import { useContext} from "react";
-import { CartContext } from '../context/CartContext'
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import { UserContext } from "../context/UserContext";
 
 const Cart = () => {
-    
-    const {cart,increment,decrement,total} = useContext(CartContext);
-    //console.log(useContext(CartContext))
-
-    const numberFormat = (value) => {
-        return value.toLocaleString("de-DE");
-    };
+    const { cart, increment, decrement, total, numFormat } = useContext(CartContext);
+    const { userToken } = useContext(UserContext);
 
     return (
         <main className="container">
@@ -22,7 +18,7 @@ const Cart = () => {
                                 <h6 className="text-capitalize p-2">{item.name}</h6>
                             </div>
                             <div className="d-flex justify-content-end align-items-center">
-                                <h6 className="pe-3">${ numberFormat( item.price * item.count )}</h6>
+                                <h6 className="pe-3">${numFormat(item.price * item.count)}</h6>
                                 <button className="btn btn-danger" onClick={() => decrement(i)}>
                                     -
                                 </button>
@@ -38,9 +34,10 @@ const Cart = () => {
                         <h2 className="my-4">Total: ${total}</h2>
                     </div>
                     <div className="d-flex justify-content-end py-2">
-                        <button className="btn btn-dark" disabled={!cart.length}> Pagar </button>
+                        <button className="btn btn-dark" disabled={!cart.length || !userToken}>
+                            Pagar
+                        </button>
                     </div>
-
                 </div>
             </div>
         </main>

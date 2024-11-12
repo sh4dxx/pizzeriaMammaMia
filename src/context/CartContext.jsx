@@ -66,21 +66,17 @@ const CartProvider = ({ children }) => {
     let totalUf = cart.reduce((acc, el) => acc + el.price * el.count, 0);
     const total = numFormat(totalUf);
 
-    const CartProviderValues = {
+    const cartProviderValues = {
         cart,
         setCart,
         increment,
         decrement,
         total,
         pizzas,
-        addToCart
+        addToCart,
+        numFormat
     };
 
-    return <CartContext.Provider value={CartProviderValues}>{children}</CartContext.Provider>;
-    // return (
-    //   <CartContext.Provider value={ CartProviderValues}>
-    //     {children}
-    //   </CartContext.Provider>
-    // );
+    return <CartContext.Provider value={cartProviderValues}>{children}</CartContext.Provider>;
 };
 export default CartProvider;

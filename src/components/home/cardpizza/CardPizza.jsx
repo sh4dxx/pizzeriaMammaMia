@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
 import { useContext} from "react";
+import { useNavigate} from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
 
 export default function CardPizza({pizza}) {
 
-    // console.log(pizza)
-    let priceFormat = pizza.price.toLocaleString("de-DE")
-    const { addToCart } = useContext(CartContext);
+    const { addToCart, numFormat } = useContext(CartContext);
+    
+    const navigate = useNavigate();
+    const handleNavigate = () => {
+        navigate(`/pizza/${pizza.id}`);
+    };
 
     return (
         <>
@@ -23,9 +26,9 @@ export default function CardPizza({pizza}) {
                             ))}
                         </ul>
                         <hr />
-                        <p className="h4 text-center">Precio: ${priceFormat}</p>
+                        <p className="h4 text-center">Precio: ${numFormat(pizza.price)}</p>
                         <div className="mt-3 d-flex justify-content-between">
-                            <Link to="/pizza/p001" className="btn btn-light btn-bdark">Ver mas 👀</Link>
+                            <button className="btn btn-light btn-bdark" onClick={handleNavigate}>Ver mas 👀</button>
                             <button className="btn btn-dark btn-bdark" onClick={() => addToCart(pizza)} >Añadir 🛒</button>
                         </div>                        
                     </div>

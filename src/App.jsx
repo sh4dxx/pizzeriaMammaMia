@@ -9,25 +9,28 @@ import Pizza from "./pages/Pizza";
 import Footer from "./components/footer/Footer";
 import NotFound from "./pages/NotFound";
 import Profile from "./components/Profile";
-import CartProvider from "./context/CartContext";
+
+import { useContext } from "react";
+import { Navigate } from "react-router-dom";
+import { UserContext } from "./context/UserContext";
 
 function App() {
+    const { userToken } = useContext(UserContext);
+
     return (
         <>
-            <CartProvider>
-                <Navigation />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/cart" element={<Cart />} />
-                    <Route path="/pizza/p001" element={<Pizza />} />
-                    <Route path="/profile" element={<Profile />} />
-                    <Route path="/404" element={<NotFound />} />
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
-            </CartProvider>
+            <Navigation />
+            <Routes>
+                <Route path="/" element={<Home />} />
 
+                <Route path="/register" element={!userToken ? <Register /> : <Navigate to="/" />} />
+                <Route path="/login" element={!userToken ? <Login /> : <Navigate to="/" />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/pizza/:id" element={<Pizza />} />
+                <Route path="/profile" element={userToken ? <Profile /> : <Navigate to="/login" />} />
+                <Route path="/404" element={<NotFound />} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
             <Footer />
         </>
     );
