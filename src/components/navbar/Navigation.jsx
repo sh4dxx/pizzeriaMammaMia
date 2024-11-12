@@ -1,10 +1,12 @@
+import { useContext} from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext"
 
 export default function Navigation() {
-    const total = 25000;
-    const token = false;
 
-    let totalFormat = total.toLocaleString("de-DE");
+    const {total} = useContext(CartContext);
+    
+    const token = false;
     let showLogin = token ? "btn btn-dark btn-blight" : "d-none";
     let showLogout = !token ? "btn btn-dark btn-blight" : "d-none";
 
@@ -40,7 +42,7 @@ export default function Navigation() {
                             </li>
                         </ul>
                         {/* <button className="btn btn-dark btn-bprymary">🛒Total ${totalFormat}</button> */}
-                        <Link to="/cart" className="btn btn-dark btn-bprymary">🛒Total ${totalFormat}</Link>
+                        <Link to="/cart" className="btn btn-dark btn-bprymary">🛒Total ${total}</Link>
                     </div>
                 </div>
             </nav>

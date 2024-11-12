@@ -1,8 +1,12 @@
 
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 export default function Pizza() {
+    
+    const { addToCart } = useContext(CartContext);
+
     const [pizza, setPizza] = useState([]);
     const getPizza = async () => {
         try {
@@ -42,7 +46,7 @@ export default function Pizza() {
                         <hr />
                         <p className="h4 text-center">Precio: ${pizza.price}</p>
                         <div className="mt-3 d-flex justify-content-center">
-                            <button className="btn btn-dark btn-bdark">Añadir al carrito 🛒</button>
+                            <button className="btn btn-dark btn-bdark" onClick={() => addToCart(pizza)} >Añadir al carrito 🛒</button>
                         </div>
                     </div>
                 </div>

@@ -1,29 +1,14 @@
-import { useState } from "react";
-import { pizzaCart } from "../pizzas";
+import { useContext} from "react";
+import { CartContext } from '../context/CartContext'
 
 const Cart = () => {
-    const [cart, setCart] = useState(pizzaCart);
-
-    const increment = (i) => {
-        const newCart = [...cart];
-        newCart[i].count++;
-        setCart(newCart);
-    };
-
-    const decrement = (i) => {
-        const newCart = [...cart];
-        newCart[i].count--;
-        if (newCart[i].count === 0) {
-            newCart.splice(i, 1);
-        }
-        setCart(newCart);
-    };
+    
+    const {cart,increment,decrement,total} = useContext(CartContext);
+    //console.log(useContext(CartContext))
 
     const numberFormat = (value) => {
         return value.toLocaleString("de-DE");
     };
-
-    const total = cart.reduce((acc, el) => acc + el.price * el.count, 0);
 
     return (
         <main className="container">
@@ -50,7 +35,7 @@ const Cart = () => {
                     ))}
 
                     <div className="d-flex justify-content-end py-2">
-                        <h2 className="my-4">Total: ${numberFormat(total)}</h2>
+                        <h2 className="my-4">Total: ${total}</h2>
                     </div>
                     <div className="d-flex justify-content-end py-2">
                         <button className="btn btn-dark" disabled={!cart.length}> Pagar </button>
