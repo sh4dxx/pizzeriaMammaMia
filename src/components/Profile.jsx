@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
+
 export default function Profile() {
 
-    let email = "felipeh@gmail.com"
+    const { email, logout } = useContext(UserContext);
     return (
         <>
             <div className="container">
@@ -13,7 +16,7 @@ export default function Profile() {
                                 <input className="form-control" placeholder="Email" disabled id="formInput" type="text" value={email}></input>
                                 <br />
                                 <div className="d-grid gap-2 col-4 mx-auto">
-                                    <button className="btn btn-primary" type="button">
+                                    <button className="btn btn-primary" type="button" onClick={logout}>
                                         Cerrar session
                                     </button>
                                 </div>

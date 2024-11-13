@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 export default function Register() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
     const [ratificationPassword, setRatificationPassword] = useState("");
+
+    const { email, setEmail } = useContext(UserContext);
+    const { password, setPassword } = useContext(UserContext);
+    const { handleSubmitRegister } = useContext(UserContext);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -54,7 +57,7 @@ export default function Register() {
                                     </label>
                                     <input value={ratificationPassword} type="password" className="form-control" onChange={(e) => setRatificationPassword(e.target.value)}></input>
                                     <br />
-                                    <button type="submit" className="btn btn-primary">
+                                    <button type="submit" className="btn btn-primary" onClick={handleSubmitRegister}>
                                         Registrar
                                     </button>
                                 </form>

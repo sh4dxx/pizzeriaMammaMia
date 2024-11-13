@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useContext} from "react";
+import { UserContext } from "../context/UserContext";
 
 export default function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+
+    const { email, setEmail } = useContext(UserContext);
+    const { password, setPassword } = useContext(UserContext);
+    const { handleSubmitLogin } = useContext(UserContext);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -17,7 +20,7 @@ export default function Login() {
             return;
         }
 
-        alert("formulario enviado");
+        handleSubmitLogin()
         setEmail("");
         setPassword("");
     }

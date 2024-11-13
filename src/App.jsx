@@ -2,13 +2,13 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Navigation from "./components/navbar/Navigation";
 import Home from "./pages/Home";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import Pizza from "./pages/Pizza";
-import Footer from "./components/footer/Footer";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import Profile from "./components/Profile";
+import Footer from "./components/footer/Footer";
 
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
@@ -22,7 +22,6 @@ function App() {
             <Navigation />
             <Routes>
                 <Route path="/" element={<Home />} />
-
                 <Route path="/register" element={!userToken ? <Register /> : <Navigate to="/" />} />
                 <Route path="/login" element={!userToken ? <Login /> : <Navigate to="/" />} />
                 <Route path="/cart" element={<Cart />} />
